@@ -1,0 +1,16 @@
+server {
+
+    listen 80;
+    listen [::]:80;
+
+    server_name my-local.localhost;
+
+    location / {
+        include /etc/nginx/includes/proxy.conf;
+
+        proxy_pass http://MY_NGINX_CONTAINER_NAME_OR_DOCKER_COMPOSE_SERVICE_NAME;
+    }
+
+    error_log /var/log/nginx/proxy_error.log;
+    access_log /var/log/nginx/proxy_access.log;
+}

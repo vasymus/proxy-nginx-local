@@ -1,0 +1,8 @@
+/.idea
+.env
+
+.phpstorm.meta.php
+_ide_helper*
+cghooks.lock
+
+/__docs/
