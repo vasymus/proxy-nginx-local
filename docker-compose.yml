@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+    ### NGINX Server #########################################
+    proxy:
+        build:
+            context: ./docker/nginx
+        volumes:
+            - ./docker/nginx/logs/:/var/log/nginx
+            - ./docker/nginx/ssl/:/etc/nginx/ssl
+        ports:
+            - "80:80"
+            - "443:443"
+        networks:
+            - crmv2
+            - mpl
+
+networks:
+    crmv2:
+        driver: bridge
+        name: crmv2
+    mpl:
+        driver: bridge
+        name: mpl
